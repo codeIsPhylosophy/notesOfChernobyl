@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" href="css/style.min.css"/>
+    <link rel="icon" href="images/favicon.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Rubik+Microbe&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet"/>
+    <title>Notes of Chernobyl</title>
+    <meta name="description" content="Todo list with radiation hazard style">
+    <meta name="keywords" content="todo, list, note, notes">
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__image">
+        <img class="image" src="images/icon_head.png" />
+      </div>
+      <div class="header__title">
+        <h1 class="c2h5oh">Notes of Chernobyl</h1>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="input_start-wrapp">
+        <input class="input_start" type="text" placeholder="April 26, 1986" autofocus/>
+        <input id="toggle-all" class="toggle-all" type="checkbox">
+        <label class="toggleLabel" for="toggle-all"></label>
+      </div>
+      <div class="stock-list">
+        <ul class="blockList">         
+        </ul>
+        <footer class="footer">
+          <p class="counterItems">Did you eat an Easter egg today?</p>
+          <ul class="selectButtons">
+            <li><a class="allBut" href="#All">All</a></li>
+            <li><a class="activeBut" href="#Active">Active</a></li>
+            <li><a class="completedBut" href="#Completed">Completed</a></li>
+          </ul>
+          <button class="clearCompleted" value="Clear completed">Clear completed</button>
+        </footer>
+      </div>
+      
+      <template id="createLi">
+        <li class="blockList__elem">
+          <div class="check-wrapp">
+            <label>
+              <input class="origCheck" type="checkbox"/>
+              <div class="falseCheck"></div>
+            </label>
+          </div>
+          <p></p>
+          <button class="closeMe"></button>
+        </li>
+      </template>
+    </main>
+
+    <script src="js/main.min.js"></script>
+  </body>
+</html>
