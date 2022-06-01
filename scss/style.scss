@@ -1,0 +1,370 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+
+	&:before {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	&:after {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+}
+
+button {
+	border: none;
+	background-image: none;
+	background-color: transparent;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+
+	&:visited {
+		text-decoration: none;
+	}
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+h1 {
+	font-size: 9vw;
+	font-family: 'Rubik Microbe', cursive;
+
+	@media (min-width: 700px) {
+		font-size: 69px;
+	}
+}
+
+body {
+	max-width: 100%;
+	height: 100%;
+	background-color: #ffc402;
+}
+
+.header {
+	display: flex;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	flex-direction: column;
+	align-items: center;
+
+	&__image {
+		max-width: 200px;
+
+		@keyframes rotateSign {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+		img {
+			width: 100px;
+			animation: rotateSign 10s infinite linear;
+			transition: transform linear infinite;
+			user-select: none;
+		}
+	}
+
+	&__title {
+		max-width: 100%;
+	}
+
+}
+
+main {
+	max-width: 100%;
+
+	.input_start {
+		width: 550px;
+		height: 50px;
+		padding: 0 10px 0 48px;
+		outline: none;
+		border: 1px solid #bcbebbe5;
+		font-size: 30px;
+		font-family: 'Caveat', cursive;
+		background-color: #f7dfb7;
+		-webkit-box-shadow: -5px 8px 20px 0px #223c5033 inset;
+		-moz-box-shadow: -5px 8px 20px 0px #223c5033 inset;
+		box-shadow: -5px 8px 20px 0px #223c5033 inset;
+
+		@media(max-width: 500px) {
+			max-width: 100%;
+		}
+
+		&::placeholder {
+			color: #ff0000;
+			opacity: 0.4;
+		}
+	}
+}
+
+.input_start-wrapp {
+	position: relative;
+	display: flex;
+	width: 550px;
+	margin: 0 auto;
+	justify-content: center;
+	-webkit-box-shadow: -2px 19px 27px 3px #223c5033;
+	-moz-box-shadow: -2px 19px 27px 3px #223c5033;
+	box-shadow: -2px 19px 27px 3px #223c5033;
+
+	@media(max-width:500px) {
+		max-width: 100%;
+	}
+}
+
+.blockList {
+	max-width: 550px;
+	margin: 0 auto;
+
+	&__elem {
+		position: relative;
+		display: flex;
+		padding: 5px 5px 5px 10px;
+		align-items: center;
+		background-color: #f7dfb7;
+		border-bottom: 1px solid #89936e;
+		font-size: 30px;
+		font-family: 'Caveat', cursive;
+		overflow-wrap: anywhere;
+		word-break: break-world;
+		-webkit-box-shadow: -2px 19px 27px 3px #223c5033;
+		-moz-box-shadow: -2px 19px 27px 3px #223c5033;
+		box-shadow: -2px 19px 27px 3px #223c5033;
+
+		&:hover {
+			.closeMe {
+				display: block;
+			}
+		}
+
+		p {
+			transition: 0.2s color linear;
+		}
+	}
+}
+
+.check-wrapp {
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+}
+
+.origCheck {
+	position: absolute;
+	width: 0;
+	height: 0;
+	opacity: 0;
+}
+
+.falseCheck {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	border: 1px solid #e416ff;
+	border-radius: 50%;
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+	&::before {
+		content: "";
+		display: none;
+		position: absolute;
+		top: -1px;
+		left: -1px;
+		width: 41px;
+		height: 41px;
+		background: url('../images/radiation-radioactive-svgrepo-com.svg') no-repeat;
+	}
+}
+
+.origCheck:checked+.falseCheck::before {
+	display: block;
+}
+
+.closeMe {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 10px;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	margin: auto 0 4px;
+	font-size: 34px;
+	color: #a52a2a;
+	cursor: pointer;
+	transform: rotate(45deg);
+	opacity: 0.4;
+	transition: opacity 0.1s ease-in-out;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+	&:hover {
+		opacity: 1;
+	}
+
+	&::after {
+		content: "+";
+	}
+}
+
+.toggle-all {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+}
+
+.toggle-all+label {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 30px;
+	transform: rotate(90deg);
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.toggle-all+label::before {
+	content: '❯';
+	position: relative;
+	top: 10px;
+	left: 7px;
+	width: 10px;
+	height: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 30px;
+	font-weight: 500;
+	color: #89936e;
+}
+
+.toggle-all:checked+label::before {
+	color: #000;
+}
+
+.selectP {
+	text-decoration: line-through;
+	color: #afafaf;
+	transition: 0.2s color linear;
+}
+
+.paragraph-wrap {
+	width: 100%;
+
+	input {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 57px;
+		width: 89%;
+		height: 100%;
+		padding-left: 3px;
+		font-family: inherit;
+		font-size: 30px;
+		background-color: #f7dfb7;
+		z-index: 2;
+
+		&:focus {
+			outline: 1px solid #16d0ff66;
+			box-shadow: -5px 8px 20px 0px rgb(34 60 80 / 20%) inset;
+		}
+
+	}
+}
+
+.footer {
+	display: none;
+	max-width: 550px;
+	height: 40px;
+	margin: 0 auto 20px;
+	align-items: center;
+	background-color: #f7dfb7;
+	border-bottom: 1px solid #89936e;
+	word-break: break-world;
+	-webkit-box-shadow: -2px 19px 27px 3px #223c5033;
+	-moz-box-shadow: -2px 19px 27px 3px #223c5033;
+	box-shadow: -2px 19px 27px 3px #223c5033;
+
+	@media(max-width: 450px) {
+		height: auto;
+		flex-direction: column;
+	}
+
+	p {
+		margin-left: 15px;
+	}
+
+	.selectButtons {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		width: 212px;
+		justify-content: space-between;
+		margin: 0 48px 0 70px;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+		@media (max-width: 450px) {
+			margin: 0px 21px 0 27px;
+		}
+
+		li {
+			padding: 3px 7px;
+			border-radius: 3px;
+			
+			a {
+				color: inherit;
+			}
+		}
+
+		li:hover {
+
+			@media(min-width: 361px) {
+				outline: 1px solid #fc0ee84f;
+			}
+		}
+	}
+
+	.focus {
+		outline: 1px solid #fc0ee8;
+
+	}
+
+	.clearCompleted {
+		float: right;
+		font-family: inherit;
+		font-size: 16px;
+		display: none;
+		margin-right: 15px;
+
+		&:hover {
+			@media(min-width: 361px) {
+				margin-bottom: -1px;
+				border-bottom: 1px solid #000000;
+				cursor: pointer;
+			}
+		}
+	}
+}
